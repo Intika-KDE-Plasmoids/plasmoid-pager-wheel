@@ -1,0 +1,41 @@
+---------------
+Pager Wheel Dev
+-------------------------------------------------------------------------------------------------------
+/usr/share/plasma/plasmoids/org.kde.plasma.pager/contents/ui/main.qml
+-------------------------------------------------------------------------------------------------------
+https://github.com/intika/ultimategmailfeed/blob/master/package/contents/ui/main.qml
+https://forums.linuxmint.com/viewtopic.php?t=207879
+https://www.kubuntuforums.net/showthread.php/63702-Mouse-Wheel-Actions-in-Pager-and-Task-Manager
+https://bbs.archlinux.org/viewtopic.php?id=128441
+https://askubuntu.com/questions/647827/disable-desktop-switching-with-the-scroll-wheel-in-kubuntu
+https://forum.kde.org/viewtopic.php?f=67&t=27815&start=15
+-------------------------------------------------------------------------------------------------------
+    property bool countWheel: true
+    property bool fixTimerLoop: true
+    
+    Timer {
+        id: wheeltimer
+        repeat: false
+        triggeredOnStart: fasle
+        interval: 500
+        onTriggered: fixTimerLoop = true
+    }
+    
+    function switchWheel() {
+        if (fixTimerLoop) {
+            if (countWheel) {
+                pagerModel.changePage((pagerModel.currentPage + 1));
+                countWheel = false;
+            } else {
+                pagerModel.changePage((pagerModel.currentPage - 1));
+                countWheel = true;
+            }
+        }
+        fixTimerLoop = false;
+    }
+    
+    onWheel: {
+        switchWheel();
+        wheeltimer.restart();
+    }
+------------------------------------------------------------------------------------------------------- 

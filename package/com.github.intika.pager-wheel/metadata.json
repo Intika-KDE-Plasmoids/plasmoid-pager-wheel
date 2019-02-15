@@ -1,0 +1,29 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "intika@librefox.org",
+                "Name": "intika"
+            }
+        ],
+        "Category": "Windows and Tasks",
+        "Dependencies": [
+        ],
+        "Description": "Switch between virtual desktops",
+        "EnabledByDefault": true,
+        "Icon": "user-desktop",
+        "Id": "com.github.intika.pager-wheel",
+        "License": "GPL-3.0+",
+        "Name": "Desktop Pager Wheel",
+        "ServiceTypes": [
+            "Plasma/Applet"
+        ],
+        "Version": "5.0",
+        "Website": "https://github.com/Intika-Linux-Plasmoid/plasmoid-pager-wheel"
+    },
+    "X-Plasma-API": "declarativeappletscript",
+    "X-Plasma-MainScript": "ui/main.qml",
+    "X-Plasma-Provides": [
+        "org.kde.plasma.virtualdesktops"
+    ]
+}
